@@ -1,0 +1,247 @@
+
+
+* {
+    box-sizing: border-box;
+    /* Чтобы padding был во внутрь */
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Псевдоэлементы не являются элементами html, поэтому для них нужно указывать стили */
+}
+
+@font-face {
+    font-family: "Poppins";
+    /*  font-family: "Futura-Medium"; */
+    src: url("../fonts/Poppins-Regular.woff") format("woff");
+    /* src: url("../fonts/FuturaPT-Medium.woff") format("woff"); */
+      /* url("../fonts/FuturaPT-Medium.woff2") format("woff2"),  */
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Medium.woff") format("woff");
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Bold.woff") format("woff");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    /*  font-family: "Poppins", sans-serif; */
+    /*  font-family: "Futura PT", sans-serif; */
+    /* font-size: 16px; */
+    /* Этот параметр указывает Минин */
+    font-weight: 400;
+    /* вместо 400 можно указать normal */
+    max-width: 1280px;
+}
+
+img {
+    max-width: 100%;
+       /* Чтобы картинка была внутри родительского блока, не выходила за него */
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /* Класс .list-reset - это для того, чтобы у всех списков ul убрать точки перед элементами списка */
+    /* Для этого для ul (строка 48) в свойстве class после заданного ранее значения добавить list-reset */
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    font-family: var(--font-family);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.link {
+    display: inline-flex;
+    /* align-items: center; */ 
+
+    /* text-indent: 10px;  */
+    /* border-bottom: 1px solid currentColor; */
+    /* эти два параметра перенесли в .link span */
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none;
+    color: #d4d6d4;
+    transition: color 0.3s ease-in-out;
+}
+
+.link svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transform: translateY(2px);
+    /* Иконку Рlay опустим вниз на 2 рх */
+}
+
+.link span {
+    text-indent: 10px;
+    border-bottom: 1px solid currentColor;
+}
+
+.link:hover {
+    color: #ffd723;
+}
+
+site-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    color: #4d533c;
+}
+
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 24px 0;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.burger {
+    --offset-horizontal: 11px;
+    --offset-vertical: 11px;
+    position: relative ;
+    border-radius: 50%;
+    padding: var(--offset-vertical) var(--offset);
+    width: 40px;
+    height: 40px;
+    /* line-height: 2px; */
+    background-color: #f5f6f7;
+}
+
+.burger-line {
+    position: absolute;
+    /* left: var(--offset); */
+    left: 50%;
+    top: var(--offset-vertical);
+    display: inline-block;
+    width: calc(100% - (var(--offset-horizontal) * 2));
+    height: 2px;
+    background-color: #000;
+    transform: translateX(-50%);
+}
+
+.burger-line:nth-child(2) {
+    top: calc(var(--offset-vertical) + 6px);
+}
+
+.burger-line:nth-child(3) {
+    top: calc(var(--offset-vertical) + 12px);
+}
+
+.hero {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    /* min-height: 811px; */
+    /* Очень большой отступ снизу */
+    background-image: url("../Image/krym.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 616px;
+    color: #fff;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.hero-title {
+    margin: 0;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 74px;
+}
+
+.hero-descr {
+    margin: 0;
+    margin-bottom: 45px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.hero-link {
+    color: #ffd723;
+}
+
+.services {
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.services-title {
+    margin: 0;
+    max-width: 606px;
+}
+
+.services-list {
+    margin: 0;
+    display: grid;
+    /* grid-template-columns: repeat(4, 255); */
+    /* Не работает */
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+        /* Работает */
+}
+
+.services-subtitle {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: #4d533c;
+}
+
+.services-descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: rgba(33, 56, 66, 0.6);
+}
+
+
